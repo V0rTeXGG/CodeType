@@ -1,0 +1,65 @@
+@import "main";
+
+.header {
+  padding-top: 40px;
+  margin-bottom: 90px;
+}
+
+.header-wrapper {
+  @include displayFlex;
+}
+
+.header-version {
+  @include displayFlex;
+  max-width: 343px;
+  width: 343px;
+  padding: 14px 16px;
+  border-radius: 36px;
+  background-color: $colorGrey;
+
+  .header-version__text {
+    font-size: 20px;
+    line-height: 98.023%;
+    letter-spacing: -0.4px;
+  }
+
+  .header-version__line {
+    height: 20px;
+    width: 1px;
+    background-color: $colorWhite;
+  }
+
+  .header-version__img {
+    transition: all .2s ease;
+  }
+
+  .header-version__img.blue {
+    stroke: $colorBlue;
+    fill: $colorBlue;
+  }
+}
+
+.header-wrapper__right {
+  @include displayFlex;
+
+  .header-wrapper__alerts {
+    width: 23px;
+    height: 26px;
+    background-image: url('@/assets/img/header/alerts-icon.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 24px;
+    transition: all .15s ease-in-out;
+
+    &:hover {
+      transform: scale(120%);
+    }
+  }
+
+  .header-profile {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: $colorGrey;
+  }
+}
