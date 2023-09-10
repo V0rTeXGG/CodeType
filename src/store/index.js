@@ -49,9 +49,13 @@ export default createStore({
     selectLang: 'JS',
     isAuthorization: false,
     isTaskDone: false,
-    userName: '',
+    username: '',
     userPassword: '',
     isModalVis: false,
+    isActiveTask: false,
+
+    isErrorMassage: false,
+    isErrorMassageVoid: '',
   },
   getters: {
   },
@@ -59,12 +63,42 @@ export default createStore({
       updateTaskStatus(state, newVal) {
           state.isTaskDone = newVal
       },
+      updateActiveTask(state, newVal) {
+        state.isActiveTask = newVal
+      },
       updateModalStatus(state, newVal) {
           state.isModalVis = newVal
       },
       updateSelectLang(state, newVal) {
           state.selectLang = newVal
-      }
+      },
+      updateStatusAuthorization(state, newVal) {
+        state.isAuthorization = newVal
+        localStorage.setItem('isAuthorization', JSON.stringify(state.isAuthorization));
+      },
+      setUserName(state, newVal) {
+          state.username = newVal
+          localStorage.setItem('username', JSON.stringify(state.username));
+      },
+      setUserPassword(state, newVal) {
+          state.userPassword = newVal
+          localStorage.setItem('password', JSON.stringify(state.userPassword));
+      },
+      closeErrorMassage(state, newVal) {
+          state.isErrorMassage = newVal
+      },
+      updateErrorMassageVoid(state, newVal) {
+          state.isErrorMassage = newVal
+          state.isErrorMassageVoid = 'Please fill in all fields'
+      },
+      updateErrorMassageCurrent(state, newVal) {
+          state.isErrorMassage = newVal
+          state.isErrorMassageVoid = 'Please fill in the following fields correctly'
+      },
+      updateErrorMassageNon(state, newVal) {
+          state.isErrorMassage = newVal
+          state.isErrorMassageVoid = 'There is no such data, please check that it is filled out correctly'
+      },
   },
   actions: {
   },

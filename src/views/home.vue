@@ -17,7 +17,7 @@ export default {
     }
   },
   mounted() {
-    localStorage.setItem('isAuthorization', this.$store.state.isAuthorization)
+
   }
 }
 </script>

@@ -5,7 +5,11 @@
   width: 115px;
   height: 100vh;
   background-color: $colorGrey;
-  transition: all .3s ease;
+  transition: width .3s ease, transform .3s ease-in-out;
+}
+
+.sidebar.active {
+  transform: translateX(-100%);
 }
 
 .sidebar:hover {

@@ -3,6 +3,11 @@
 .header {
   padding-top: 40px;
   margin-bottom: 90px;
+  transition: transform .3s ease-in-out;
+}
+
+.header.active {
+  transform: translateY(-100%);
 }
 
 .header-wrapper {
@@ -51,15 +56,46 @@
     margin-right: 24px;
     transition: all .15s ease-in-out;
 
+    path {
+      transition: all .15s ease;
+    }
+
     &:hover {
       transform: scale(120%);
+
+      path {
+        stroke: $colorWhite;
+      }
+    }
+
+  }
+
+  .header-profile__link {
+    @include displayFlex;
+    max-width: 100px;
+
+    .header-wrapper__profile {
+      margin-right: 12px;
+      fill: $colorGrey;
+      transition: fill .15s ease;
+    }
+
+    .header-profile__username {
+      font-size: 16px;
+      letter-spacing: 1.2px;
+      color: $colorGrey;
+      transition: color .15s ease;
     }
   }
 
-  .header-profile {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background-color: $colorGrey;
+  .header-profile__link:hover {
+
+    .header-wrapper__profile {
+      fill: $colorWhite;
+    }
+
+    .header-profile__username {
+      color: $colorWhite;
+    }
   }
 }

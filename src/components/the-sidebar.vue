@@ -1,8 +1,8 @@
 <template>
-  <nav class="sidebar">
+  <nav class="sidebar" :class="{active: this.$store.state.isActiveTask}">
     <div class="sidebar-wrapper">
       <div class="sidebar-logo">
-        <div @click="goBackToMain" class="sidebar-logo__link">
+        <router-link tag="a" to="/" class="sidebar-logo__link">
           <span class="sidebar-logo__wrap  sidebar-logo__wrap-small">
             <svg class="sidebar-logo__small" width="75" height="65" viewBox="0 0 75 65" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M36.9176 29.6562H33.1847C33.1165 29.1733 32.9773 28.7443 32.767 28.3693C32.5568 27.9886 32.2869 27.6648 31.9574 27.3977C31.6278 27.1307 31.2472 26.9261 30.8153 26.7841C30.3892 26.642 29.9261 26.571 29.4261 26.571C28.5227 26.571 27.7358 26.7955 27.0653 27.2443C26.3949 27.6875 25.875 28.3352 25.5057 29.1875C25.1364 30.0341 24.9517 31.0625 24.9517 32.2727C24.9517 33.517 25.1364 34.5625 25.5057 35.4091C25.8807 36.2557 26.4034 36.8949 27.0739 37.3267C27.7443 37.7585 28.5199 37.9744 29.4006 37.9744C29.8949 37.9744 30.3523 37.9091 30.7727 37.7784C31.1989 37.6477 31.5767 37.4574 31.9062 37.2074C32.2358 36.9517 32.5085 36.642 32.7244 36.2784C32.946 35.9148 33.0994 35.5 33.1847 35.0341L36.9176 35.0511C36.821 35.8523 36.5795 36.625 36.1932 37.3693C35.8125 38.108 35.2983 38.7699 34.6506 39.3551C34.0085 39.9347 33.2415 40.3949 32.3494 40.7358C31.4631 41.071 30.4602 41.2386 29.3409 41.2386C27.7841 41.2386 26.392 40.8864 25.1648 40.1818C23.9432 39.4773 22.9773 38.4574 22.267 37.1222C21.5625 35.7869 21.2102 34.1705 21.2102 32.2727C21.2102 30.3693 21.5682 28.75 22.2841 27.4148C23 26.0795 23.9716 25.0625 25.1989 24.3636C26.4261 23.6591 27.8068 23.3068 29.3409 23.3068C30.3523 23.3068 31.2898 23.4489 32.1534 23.733C33.0227 24.017 33.7926 24.4318 34.4631 24.9773C35.1335 25.517 35.679 26.179 36.0994 26.9631C36.5256 27.7472 36.7983 28.6449 36.9176 29.6562ZM38.8991 26.5881V23.5455H53.2344V26.5881H47.8906V41H44.2429V26.5881H38.8991Z" fill="#EBEBEB"/>
@@ -15,11 +15,21 @@
               <rect :class="{'blue': this.$store.state.selectLang === 'C++' || this.$store.state.selectLang === 'Python'}" x="1" y="1" width="170" height="63" rx="31.5" stroke="#FEB81C" stroke-width="2"/>
             </svg>
         </span>
-        </div>
+        </router-link>
       </div>
       <div class="sidebar-wrapper__navigation">
         <div class="sidebar-wrapper__block">
-          <button class="sidebar-wrapper__btn-block">
+          <router-link v-if="this.$store.state.isAuthorization" tag="a" to="/statistic" class="sidebar-wrapper__btn-block">
+            <svg class="sidebar-wrapper__img" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+              <path class="sidebar-wrapper-path-stroke" :class="{'blue': this.$store.state.selectLang === 'C++' || this.$store.state.selectLang === 'Python'}" d="M10.3061 11.08H6.79606C6.53435 11.08 6.28306 11.1826 6.09614 11.3658L5.70823 11.7459C5.51631 11.934 5.40816 12.1914 5.40816 12.4601V20.2H10.3061M10.3061 11.08V7.66014C10.3061 7.39142 10.4143 7.13401 10.6062 6.94593L10.9941 6.56579C11.181 6.3826 11.4323 6.28 11.694 6.28H14.7958C15.0575 6.28 15.3088 6.3826 15.4957 6.56579L15.8836 6.94593C16.0755 7.13401 16.1837 7.39142 16.1837 7.66014V13.48M10.3061 11.08V20.2M16.1837 13.48H19.6937C19.9555 13.48 20.2067 13.5826 20.3937 13.7658L20.7816 14.1459C20.9735 14.334 21.0816 14.5914 21.0816 14.8601V20.2H16.1837M16.1837 13.48V20.2M10.3061 20.2H16.1837M25 7V19C25 22.3137 22.3137 25 19 25H7C3.68629 25 1 22.3137 1 19V7C1 3.68629 3.68629 1 7 1H19C22.3137 1 25 3.68629 25 7Z" stroke="#FEB81C" stroke-width="1.5"/>
+            </svg>
+            <span class="sidebar-wrapper__btn">Statistic</span>
+          </router-link>
+          <button
+              v-else
+              @click="openModalWin"
+              type="button"
+              class="sidebar-wrapper__btn-block">
             <svg class="sidebar-wrapper__img" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
               <path class="sidebar-wrapper-path-stroke" :class="{'blue': this.$store.state.selectLang === 'C++' || this.$store.state.selectLang === 'Python'}" d="M10.3061 11.08H6.79606C6.53435 11.08 6.28306 11.1826 6.09614 11.3658L5.70823 11.7459C5.51631 11.934 5.40816 12.1914 5.40816 12.4601V20.2H10.3061M10.3061 11.08V7.66014C10.3061 7.39142 10.4143 7.13401 10.6062 6.94593L10.9941 6.56579C11.181 6.3826 11.4323 6.28 11.694 6.28H14.7958C15.0575 6.28 15.3088 6.3826 15.4957 6.56579L15.8836 6.94593C16.0755 7.13401 16.1837 7.39142 16.1837 7.66014V13.48M10.3061 11.08V20.2M16.1837 13.48H19.6937C19.9555 13.48 20.2067 13.5826 20.3937 13.7658L20.7816 14.1459C20.9735 14.334 21.0816 14.5914 21.0816 14.8601V20.2H16.1837M16.1837 13.48V20.2M10.3061 20.2H16.1837M25 7V19C25 22.3137 22.3137 25 19 25H7C3.68629 25 1 22.3137 1 19V7C1 3.68629 3.68629 1 7 1H19C22.3137 1 25 3.68629 25 7Z" stroke="#FEB81C" stroke-width="1.5"/>
             </svg>
@@ -92,7 +102,24 @@
             </svg>
             <span class="sidebar-wrapper__btn">Setting</span>
           </button>
-          <button @click="openModalWin"   class="sidebar-wrapper__btn-block">
+          <button
+              v-if="!this.$store.state.isAuthorization"
+              @click="openModalWin"
+              class="sidebar-wrapper__btn-block">
+            <svg class="sidebar-wrapper__img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path
+                  class="sidebar-wrapper-path-stroke"
+                  :class="{'blue': this.$store.state.selectLang === 'C++' || this.$store.state.selectLang === 'Python'}" d="M9.81741 4.77148H5.8045C4.13019 4.77148 2.77197 6.1297 2.77197 7.80483V16.9666C2.77197 18.6418 4.13019 20 5.8045 20H9.82564" stroke="#FEB81C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path
+                  class="sidebar-wrapper-path"
+                  :class="{'blue': this.$store.state.selectLang === 'C++' || this.$store.state.selectLang === 'Python'}" d="M10 11.25C9.58579 11.25 9.25 11.5858 9.25 12C9.25 12.4142 9.58579 12.75 10 12.75V11.25ZM22.5303 12.5303C22.8232 12.2374 22.8232 11.7626 22.5303 11.4697L17.7574 6.6967C17.4645 6.40381 16.9896 6.40381 16.6967 6.6967C16.4038 6.98959 16.4038 7.46447 16.6967 7.75736L20.9393 12L16.6967 16.2426C16.4038 16.5355 16.4038 17.0104 16.6967 17.3033C16.9896 17.5962 17.4645 17.5962 17.7574 17.3033L22.5303 12.5303ZM10 12.75L22 12.75V11.25L10 11.25V12.75Z" fill="#FEB81C"/>
+            </svg>
+            <span class="sidebar-wrapper__btn">Sign up</span>
+          </button>
+          <button
+              v-else
+              @click="logOutAccount"
+              class="sidebar-wrapper__btn-block">
             <svg class="sidebar-wrapper__img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path
 
@@ -102,10 +129,7 @@
                   class="sidebar-wrapper-path"
                   :class="{'blue': this.$store.state.selectLang === 'C++' || this.$store.state.selectLang === 'Python'}" d="M10 11.25C9.58579 11.25 9.25 11.5858 9.25 12C9.25 12.4142 9.58579 12.75 10 12.75V11.25ZM22.5303 12.5303C22.8232 12.2374 22.8232 11.7626 22.5303 11.4697L17.7574 6.6967C17.4645 6.40381 16.9896 6.40381 16.6967 6.6967C16.4038 6.98959 16.4038 7.46447 16.6967 7.75736L20.9393 12L16.6967 16.2426C16.4038 16.5355 16.4038 17.0104 16.6967 17.3033C16.9896 17.5962 17.4645 17.5962 17.7574 17.3033L22.5303 12.5303ZM10 12.75L22 12.75V11.25L10 11.25V12.75Z" fill="#FEB81C"/>
             </svg>
-            <span class="sidebar-wrapper__btn">
-              <slot v-if="this.$store.state.isAuthorization">Log Out</slot>
-              <slot v-else>Sign in</slot>
-            </span>
+            <span class="sidebar-wrapper__btn">Log Out</span>
           </button>
         </div>
         <div class="sidebar-wrapper__botttom">
@@ -139,8 +163,11 @@ export default {
     openModalWin() {
       this.$store.commit('updateModalStatus', true)
     },
-    goBackToMain() {
-      this.$store.commit('updateTaskStatus', false)
+    logOutAccount() {
+      localStorage.removeItem('username');
+      localStorage.removeItem('password');
+      this.$store.commit('updateStatusAuthorization', false);
+      location.reload();
     }
   },
 }

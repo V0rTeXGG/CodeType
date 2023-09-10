@@ -26,8 +26,13 @@
           <span class="main-info__timer__text" :class="{'blue': this.$store.state.selectLang === 'C++'}" >{{timeTask}}</span>
         </div>
         <div class="main-info__right">
-          <div class="main-info__select">
-            <button class="main-info__select__control" @click="isSelectedActive = !isSelectedActive">
+          <div
+              class="main-info__select"
+              :class="{hide: this.$store.state.isActiveTask}">
+            <button
+                class="main-info__select__control"
+                @click="isSelectedActive = !isSelectedActive"
+                >
               <img :src="this.selectLang.icon" alt="Selected Language Icon">
               <svg class="main-info__select__arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
                 <path :class="{'blue': this.$store.state.selectLang === 'C++'}" d="M7 9.5L12 14.5L17 9.5" stroke="#FEB81C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -193,7 +198,6 @@ export default {
         this.$store.commit('updateSelectLang', this.selectLang.lang)
         this.updateRandomWord()
       }
-      // this.selectLang = this.languages.find(item => item.lang === lang)
     },
     updateRandomWord() {
       this.currentTask = this.listTask[Math.floor(Math.random() * this.listTask.length)];
@@ -208,6 +212,7 @@ export default {
           setTimeout(updateTimer, 1000);
         } else {
           this.$store.commit('updateTaskStatus', true)
+          this.$store.commit('updateActiveTask', false)
         }
       };
 
@@ -223,6 +228,7 @@ export default {
         this.isRestartTask = false
         this.isSelectedActive = false
         this.startTimer()
+        this.$store.commit('updateActiveTask', true)
       }
 
       const enteredChar = this.userInput.charAt(this.activeChar)
@@ -234,6 +240,7 @@ export default {
 
         if(this.correctLengthChar === this.currentTask.length) {
           this.$store.commit('updateTaskStatus', true)
+          this.$store.commit('updateActiveTask', false)
         }
       } else {
         this.IncorrectChar = this.activeChar
@@ -247,6 +254,7 @@ export default {
     },
     restartTask() {
       this.$store.commit('updateTaskStatus', false)
+      this.$store.commit('updateActiveTask', false)
       this.isRestartTask = true
       this.userInput = '';
       this.inputChar = 0;
@@ -261,6 +269,7 @@ export default {
     nextTask() {
       this.updateRandomWord();
       this.$store.commit('updateTaskStatus', false);
+      this.$store.commit('updateActiveTask', false)
       this.isRestartTask = true
       this.userInput = '';
       this.inputChar = 0;
@@ -292,11 +301,14 @@ export default {
         this.selectLang = JSON.parse(localStorage.getItem('selectLang'))
         this.$store.commit('updateSelectLang', this.selectLang.lang)
       }
+      if(key === 'isAuthorization') {
+        this.$store.state.isAuthorization = JSON.parse(localStorage.getItem('isAuthorization'))
+      }
     }
     this.listTask = this.selectLang.task
   },
   mounted() {
-    this.updateRandomWord()
+    this.updateRandomWord();
   },
 }
 </script>

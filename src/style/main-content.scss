@@ -71,6 +71,11 @@
 
 .main-info__select {
   position: relative;
+  transition: opacity .3s ease;
+}
+
+.main-info__select.hide {
+  opacity: 0;
 }
 
 .main-info__select__control {
