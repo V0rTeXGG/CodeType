@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
+    isLoader: true,
     languages: [
         {lang: 'JS',
          icon: require('@/assets/img/main/js-icon.svg'),
@@ -101,6 +102,29 @@ export default createStore({
       },
   },
   actions: {
+      async startTask({commit}, taskStatus) {
+        try {
+            commit('updateActiveTask', taskStatus)
+        } catch (error) {
+            console.log(error)
+        }
+      },
+      async completeTask({commit}, taskStatus) {
+          try {
+              commit('updateTaskStatus', taskStatus.status)
+              commit('updateActiveTask', taskStatus.active)
+          } catch(error) {
+              console.log(error)
+          }
+      },
+      async restartTask({commit}, taskStatus) {
+          try {
+              commit('updateTaskStatus', taskStatus);
+              commit('updateActiveTask', taskStatus);
+          } catch(error) {
+              console.log(error)
+          }
+      }
   },
   modules: {
   }

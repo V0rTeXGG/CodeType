@@ -17,16 +17,21 @@
             <path d="M6.87609 22.1754V22.1754C8.63562 26.0236 14.1033 26.0231 15.8641 22.1754V22.1754M15.8641 22.1754H18.8579C22.2647 22.1754 23.7637 19.7193 18.8581 14.807C18.8581 5.47366 19.769 3.50875 11.3682 1.05261C3.29104 3.01752 3.87819 6.45612 3.87819 14.807C1.2936 17.2631 -1.11469 21.6842 3.8775 22.1754H15.8641Z" stroke="#212121" stroke-width="1.5"/>
           </svg>
         </button>
-        <router-link tag="button" to="/statistic" class="header-profile__link">
+        <router-link v-if="this.$store.state.isAuthorization" tag="button" to="/statistic" class="header-profile__link">
           <svg class="header-wrapper__profile" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
             <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/>
           </svg>
           <p class="header-profile__username">{{this.$store.state.username}}</p>
         </router-link>
+        <button v-else type="button" class="header-profile__link" @click="openModalWin">
+          <svg class="header-wrapper__profile" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+            <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/>
+          </svg>
+        </button>
       </div>
     </div>
-    <the-modal-win :class="{'active': this.$store.state.isModalVis}">
-    </the-modal-win>
+        <the-modal-win :class="{'active': this.$store.state.isModalVis}">
+        </the-modal-win>
     <template v-if="this.$store.state.isErrorMassage">
       <the-massage @close-massage="CloseMassage">
         <template v-slot:massage-text>
@@ -51,13 +56,14 @@ export default {
   methods: {
     CloseMassage(val) {
       this.$store.commit('closeErrorMassage', val)
-    }
+    },
+    openModalWin() {
+      this.$store.commit('updateModalStatus', true)
+    },
   }
 }
 </script>
 
 <style src="@/style/header.scss" lang="scss" scoped>
-
-
 
 </style>

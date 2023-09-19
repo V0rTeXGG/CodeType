@@ -211,8 +211,9 @@ export default {
           this.timeTask--;
           setTimeout(updateTimer, 1000);
         } else {
-          this.$store.commit('updateTaskStatus', true)
-          this.$store.commit('updateActiveTask', false)
+          // this.$store.commit('updateTaskStatus', true)
+          // this.$store.commit('updateActiveTask', false)
+          this.$store.dispatch('completeTask', {status: true, active: false})
         }
       };
 
@@ -228,7 +229,8 @@ export default {
         this.isRestartTask = false
         this.isSelectedActive = false
         this.startTimer()
-        this.$store.commit('updateActiveTask', true)
+        // this.$store.commit('updateActiveTask', true)
+        this.$store.dispatch('startTask', true)
       }
 
       const enteredChar = this.userInput.charAt(this.activeChar)
@@ -239,8 +241,9 @@ export default {
         this.correctLengthChar++
 
         if(this.correctLengthChar === this.currentTask.length) {
-          this.$store.commit('updateTaskStatus', true)
-          this.$store.commit('updateActiveTask', false)
+          // this.$store.commit('updateTaskStatus', true)
+          // this.$store.commit('updateActiveTask', false)
+          this.$store.dispatch('completeTask', {status: true, active: false})
         }
       } else {
         this.IncorrectChar = this.activeChar
@@ -253,9 +256,10 @@ export default {
       }
     },
     restartTask() {
-      this.$store.commit('updateTaskStatus', false)
-      this.$store.commit('updateActiveTask', false)
-      this.isRestartTask = true
+      // this.$store.commit('updateTaskStatus', false)
+      // this.$store.commit('updateActiveTask', false)
+      this.$store.dispatch('restartTask', false);
+      this.isRestartTask = true;
       this.userInput = '';
       this.inputChar = 0;
       this.activeChar = 0;
@@ -263,22 +267,23 @@ export default {
       this.IncorrectChar = null;
       this.errorInput = 0;
       this.timeTask = 30;
-      this.isTimerStart = false
+      this.isTimerStart = false;
 
     },
     nextTask() {
       this.updateRandomWord();
-      this.$store.commit('updateTaskStatus', false);
-      this.$store.commit('updateActiveTask', false)
-      this.isRestartTask = true
+      // this.$store.commit('updateTaskStatus', false);
+      // this.$store.commit('updateActiveTask', false);
+      this.$store.dispatch('restartTask', false);
+      this.isRestartTask = true;
       this.userInput = '';
       this.inputChar = 0;
       this.activeChar = 0;
       this.correctLengthChar = 0;
-      this.IncorrectChar = null,
+      this.IncorrectChar = null;
       this.errorInput = 0;
       this.timeTask = 30;
-      this.isTimerStart = false
+      this.isTimerStart = false;
     },
   },
   computed: {

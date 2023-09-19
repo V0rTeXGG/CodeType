@@ -1,7 +1,7 @@
 <template>
   <div class="statistics-wrapper">
     <div class="statistics-wrapper__top">
-
+      1
     </div>
   </div>
 </template>
