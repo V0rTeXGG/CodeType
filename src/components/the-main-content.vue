@@ -31,7 +31,7 @@
               :class="{hide: this.$store.state.isActiveTask}">
             <button
                 class="main-info__select__control"
-                @click="isSelectedActive = !isSelectedActive"
+                @click="closeSelect"
                 >
               <img :src="this.selectLang.icon" alt="Selected Language Icon">
               <svg class="main-info__select__arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
@@ -197,6 +197,15 @@ export default {
         localStorage.setItem('selectLang', JSON.stringify(this.selectLang))
         this.$store.commit('updateSelectLang', this.selectLang.lang)
         this.updateRandomWord()
+      }
+    },
+    closeSelect(event) {
+      if(!event.target.closest('.main-info__select__control')) {
+        if(this.isSelectedActive === true) {
+          this.isSelectedActive = false
+        }
+      } else {
+        this.isSelectedActive = !this.isSelectedActive;
       }
     },
     updateRandomWord() {

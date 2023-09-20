@@ -193,7 +193,7 @@ export default {
       }
     },
     checkName() {
-      this.userName !== '' ? this.isCheckName = true : this.isCheckName = false
+      this.userName !== '' && this.userName.length < 20 ? this.isCheckName = true : this.isCheckName = false
     },
     checkPass() {
       if(this.userPassword !== '') {
