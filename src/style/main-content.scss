@@ -191,6 +191,7 @@
 
 .main-task__char {
   opacity: .5;
+  letter-spacing: 1px;
 }
 
 .main-task__char.current.blue {
@@ -200,7 +201,6 @@
 .main-task__char.current {
   position: relative;
   opacity: 1;
-  letter-spacing: 1px;
   color: $colorOrange;
 
   &:before {
