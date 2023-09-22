@@ -198,9 +198,40 @@
 }
 
 .main-task__char.current {
+  position: relative;
   opacity: 1;
-  //font-size: 40px;
+  letter-spacing: 1px;
   color: $colorOrange;
+
+  &:before {
+    content: '';
+    z-index: 10;
+    position: absolute;
+    height: 100%;
+    width: 2px;
+    background-color: $colorOrange;
+    animation: fadeInOut .8s infinite;
+  }
+}
+
+.main-task__char.current.active-task {
+
+  &:before {
+    animation: none;
+  }
+
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 .main-task__char.correct {
@@ -212,27 +243,35 @@
 }
 
 .main-task__input {
+  z-index: 1;
+  position: absolute;
   width: 100%;
-  font-size: 40px;
-  line-height: 98.023%;
-  letter-spacing: -0.8px;
-  color: $colorOrange;
-
-  &::placeholder {
-    color: $colorOrange;
-    opacity: .3;
-    transition: color .2s ease;
-  }
-
+  height: 100%;
+  opacity: 0;
 }
 
-.main-task__input.blue {
-  color: $colorBlue;
-
-  &::placeholder {
-    color: $colorBlue;
-  }
-}
+//.main-task__input {
+//  width: 100%;
+//  font-size: 40px;
+//  line-height: 98.023%;
+//  letter-spacing: -0.8px;
+//  color: $colorOrange;
+//
+//  &::placeholder {
+//    color: $colorOrange;
+//    opacity: .3;
+//    transition: color .2s ease;
+//  }
+//
+//}
+//
+//.main-task__input.blue {
+//  color: $colorBlue;
+//
+//  &::placeholder {
+//    color: $colorBlue;
+//  }
+//}
 
 // statistics start
 
