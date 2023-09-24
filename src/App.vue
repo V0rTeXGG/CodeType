@@ -36,13 +36,10 @@ export default {
 
 <style src="@/style/main.scss" lang="scss">
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease;
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s;
 }
-
-.fade-enter-from,
-.fade-leave-to {
+.fade-enter, .fade-leave-to {
   opacity: 0;
 }
 

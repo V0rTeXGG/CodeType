@@ -122,6 +122,7 @@
 </template>
 
 <script>
+export * as users from '@/services/users'
 export default {
   name: 'the-modal-win',
   data() {
