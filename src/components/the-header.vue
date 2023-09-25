@@ -16,7 +16,7 @@
       <div class="header-wrapper__right">
         <button class="header-wrapper__alerts">
           <svg width="23" height="26" viewBox="0 0 23 26" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6.87609 22.1754V22.1754C8.63562 26.0236 14.1033 26.0231 15.8641 22.1754V22.1754M15.8641 22.1754H18.8579C22.2647 22.1754 23.7637 19.7193 18.8581 14.807C18.8581 5.47366 19.769 3.50875 11.3682 1.05261C3.29104 3.01752 3.87819 6.45612 3.87819 14.807C1.2936 17.2631 -1.11469 21.6842 3.8775 22.1754H15.8641Z" stroke="#212121" stroke-width="1.5"/>
+            <path d="M6.87609 22.1754V22.1754C8.63562 26.0236 14.1033 26.0231 15.8641 22.1754V22.1754M15.8641 22.1754H18.8579C22.2647 22.1754 23.7637 19.7193 18.8581 14.807C18.8581 5.47366 19.769 3.50875 11.3682 1.05261C3.29104 3.01752 3.87819 6.45612 3.87819 14.807C1.2936 17.2631 -1.11469 21.6842 3.8775 22.1754H15.8641Z" stroke="#212121" stroke-width="3"/>
           </svg>
         </button>
         <router-link v-if="this.$store.state.isAuthorization" tag="button" to="/statistic" class="header-profile__link">
@@ -32,8 +32,10 @@
         </button>
       </div>
     </div>
-        <the-modal-win :class="{'active': this.$store.state.isModalVis}">
-        </the-modal-win>
+    <Transition name="fade">
+      <the-modal-win v-if="this.$store.state.isModalVis">
+      </the-modal-win>
+    </Transition>
     <template v-if="this.$store.state.isErrorMassage">
       <the-massage @close-massage="CloseMassage">
         <template v-slot:massage-text>
@@ -61,6 +63,7 @@ export default {
     },
     openModalWin() {
       this.$store.commit('updateModalStatus', true)
+      document.getElementsByTagName('body')[0].classList.add('lock')
     },
     openPageMain() {
       this.$router.push('/')
@@ -70,5 +73,19 @@ export default {
 </script>
 
 <style src="@/style/header.scss" lang="scss" scoped>
+
+</style>
+
+<style>
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 
 </style>

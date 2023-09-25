@@ -51,3 +51,12 @@ body {
   margin-right: 40px;
 }
 
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    height: 15px;
+  border-radius: 8px;
+  background-color: $colorOrange;
+}

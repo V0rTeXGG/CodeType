@@ -16,8 +16,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "src/style/varible";
-
+@import "@/style/varible";
 .loader {
   position: fixed;
   top: 0;

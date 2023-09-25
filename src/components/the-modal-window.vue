@@ -191,6 +191,7 @@ export default {
     closeModal(event) {
       if (!event.target.closest('.modal-win')) {
         this.$store.commit('updateModalStatus', false)
+        document.getElementsByTagName('body')[0].classList.remove('lock')
       }
     },
     checkName() {

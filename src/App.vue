@@ -14,7 +14,7 @@
 <script>
 import TheHeader from "@/components/the-header.vue";
 import TheSidebar from "@/components/the-sidebar.vue";
-import TheLoader from "@/components/loader.vue";
+import TheLoader from "@/components/the-loader.vue";
 
 export default {
   components:{TheHeader, TheSidebar, TheLoader},
@@ -36,8 +36,12 @@ export default {
 
 <style src="@/style/main.scss" lang="scss">
 
+</style>
+
+<style>
+
 .fade-enter-active, .fade-leave-active {
-  transition: opacity 0.5s;
+  transition: opacity 0.3s;
 }
 .fade-enter, .fade-leave-to {
   opacity: 0;
