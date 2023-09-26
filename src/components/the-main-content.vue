@@ -2,15 +2,15 @@
   <div class="main-wrapper" @click="handleClickOutside">
     <Transition name="fade" mode="out-in">
       <template v-if="!this.$store.state.isTaskDone" key="taskTemplate">
-        <div class="transition-content">
+        <div v-if="!this.$store.state.isTaskDone" class="transition-content">
           <div class="main-info">
             <div class="main-info__quantity-block">
-              <div class="quentity-block__wrapper">
+              <div class="quantity-block__wrapper">
               <span :class="{'blue': this.$store.state.selectLang === 'C++'}"
-                    class="quentity-block__text">{{ correctLengthChar }}</span>
-                <span :class="{'blue': this.$store.state.selectLang === 'C++'}" class="quentity-block__text">/</span>
+                    class="quantity-block__text">{{ correctLengthChar }}</span>
+                <span :class="{'blue': this.$store.state.selectLang === 'C++'}" class="quantity-block__text">/</span>
                 <span :class="{'blue': this.$store.state.selectLang === 'C++'}"
-                      class="quentity-block__text">{{ this.currentTask.length }}</span>
+                      class="quantity-block__text">{{ this.currentTask.length }}</span>
               </div>
               <button @click="nextTask" class="main-info__restart">
                 <svg
@@ -57,7 +57,11 @@
               </div>
             </div>
           </div>
-          <div class="main-task">
+          <div
+              class="main-task"
+              :class="{'blur': taskBlur}"
+              @click="closeBlur">
+            <p v-if="taskBlur" class="main-task__text">Please click here or start typing</p>
             <input
                 type="text"
                 class="main-task__input"
@@ -83,6 +87,7 @@
                   'current': index === activeChar,
                   'active-task': this.$store.state.isActiveTask === true,
                   'incorrect': incorrectIndexes.includes(index),
+                  'blur': this.taskBlur,
                   'blue': this.$store.state.selectLang === 'C++'
                 }"
               >{{ char }}</span>
@@ -205,20 +210,20 @@ export default {
   name: 'main-content',
   data() {
     return {
-      test: false,
       isTaskDone: false,
       isRestartTask: false,
       task: 0,
       timeTask: 30,
       isTimerStart: false,
       timerId: null,
+      taskBlur: false,
       isAnimation: false,
       isAnimationMain: false,
 
       selectLang: this.$store.state.languages[0],
       isSelectedActive: false,
 
-      forbiddenKeys: [8, 16, 17, 18, 91, 92, 93, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 20, 9, 37, 32, 38, 39, 40],
+      forbiddenKeys: [8, 16, 17, 18, 91, 92, 93, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 20, 9, 37, 32, 38, 39, 40, 13],
       inputChar: 0,
       IncorrectChar: null,
       userInput: '',
@@ -273,8 +278,6 @@ export default {
     checkInput(event) {
       if (!this.forbiddenKeys.includes(event.keyCode)) {
         this.inputChar++
-        console.log(this.accuracy)
-
         if (!this.isTimerStart) {
           this.isTimerStart = true
           this.isRestartTask = false
@@ -283,7 +286,6 @@ export default {
           this.$store.dispatch('startTask', true)
           this.forbiddenKeys = this.forbiddenKeys.filter(item => item !== 32 && item !== 8)
         }
-
         if (event.key === 'Backspace') {
           if (this.activeChar > 0) {
             this.activeChar--;
@@ -340,10 +342,19 @@ export default {
       }, 500)
     },
     handlerInput() {
-      if(!this.$store.state.isTaskDone) {
+      if(!this.$store.state.isTaskDone && !this.$store.state.isModalVis) {
+        console.log('check')
         this.$refs.textInput.focus();
+      } else {
+        this.taskBlur = true
       }
     },
+    closeBlur() {
+      if(this.taskBlur) {
+        this.taskBlur = false;
+        this.$refs.textInput.focus();
+      }
+    }
   },
   computed: {
     languages() {
@@ -371,9 +382,6 @@ export default {
     }
     this.listTask = this.selectLang.task
   },
-  mounted() {
-    this.updateRandomWord();
-  },
   watch: {
     correctLengthChar(newVal) {
       if (newVal === this.currentTask.length) {
@@ -385,12 +393,19 @@ export default {
         this.completeTask()
       }
     }
+  },
+  mounted() {
+    this.updateRandomWord();
+    this.$refs.textInput.focus();
+    window.addEventListener('keydown', this.closeBlur)
+  },
+  beforeUnmount() {
+    window.removeEventListener('keydown', this.closeBlur)
   }
 }
 </script>
 
 <style src="@/style/main-content.scss" lang="scss" scoped>
-
 </style>
 
 <style>

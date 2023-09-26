@@ -8,7 +8,7 @@
           <div class="modal-win__block">
             <input
                 v-model.trim="userName"
-                @focus="isInputFocusName = true"
+                @focus="isInputFocusName = true;"
                 @blur="isInputFocusName = false"
                 @keyup="checkName"
                 type="text"
@@ -122,6 +122,8 @@
 </template>
 
 <script>
+import {mapState} from "vuex";
+
 export * as users from '@/services/users'
 export default {
   name: 'the-modal-win',
@@ -150,11 +152,9 @@ export default {
     submitForm() {
       if(this.userName === '' || this.userPassword === '' || this.verifiedPassword === '') {
         this.$store.commit('updateErrorMassageVoid', true)
-        return
       }
       else if( !this.isValidPassword || !this.isCheckPass || !this.isCheckName) {
         this.$store.commit('updateErrorMassageCurrent', true)
-        return;
       } else {
         this.$store.commit('updateModalStatus', false);
         this.$store.commit('setUserName', this.userName);
