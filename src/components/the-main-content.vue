@@ -63,10 +63,16 @@
                 class="main-task__input"
                 v-model="userInput"
                 @keydown="checkInput"
+                @blur="handlerInput"
                 ref="textInput"
-                autofocus autocomplete="off" oncopy="return false" onpaste="return false" oncut="return false"
-                autocapitalize="off" spellcheck="false" data-gramm="false" data-gramm_editor="false"
-                data-enable-grammarly="false" list="autocompleteOff">
+                autofocus
+                autocomplete="off"
+                oncopy="return false"
+                onpaste="return false"
+                oncut="return false"
+                autocapitalize="off"
+                spellcheck="false"
+                >
             <p class="main-task__code" :class="{animation: this.isAnimation}">
               <span
                   class="main-task__char"
@@ -100,7 +106,7 @@
                       fill="#FEB81C"/>
               </svg>
               <div class="statistics-info__block__info">
-                <p class="statistics-info__block__value">30</p>
+                <p class="statistics-info__block__value">{{ 30 - this.timeTask }}</p>
                 <p
                     class="statistics-info__block__description"
                     :class="{'blue': this.$store.state.selectLang === 'C++'}">Time</p>
@@ -205,6 +211,7 @@ export default {
       task: 0,
       timeTask: 30,
       isTimerStart: false,
+      timerId: null,
       isAnimation: false,
       isAnimationMain: false,
 
@@ -249,23 +256,20 @@ export default {
       this.currentTask = this.listTask[Math.floor(Math.random() * this.listTask.length)];
     },
     startTimer() {
-      const updateTimer = () => {
-        if (this.isRestartTask) {
-          return
-        }
-        if (this.timeTask > 0) {
-          this.timeTask--;
-          setTimeout(updateTimer, 1000);
-        } else {
+      const self = this;
 
-          this.$store.dispatch('completeTask', {status: true, active: false})
+      self.timerId = setTimeout(function tick() {
+        if(self.isTimerStart) {
+          self.timeTask--;
+          setTimeout(tick, 1000);
         }
-      };
-
-      this.isTimerStart = true;
-      updateTimer();
+      }, 1000);
     },
-
+    completeTask() {
+      clearTimeout(this.timerId);
+      this.isTimerStart = false
+      this.$store.dispatch('completeTask', {status: true, active: false});
+    },
     checkInput(event) {
       if (!this.forbiddenKeys.includes(event.keyCode)) {
         this.inputChar++
@@ -292,17 +296,11 @@ export default {
           if (event.key === this.currentTask.charAt(this.activeChar)) {
             this.activeChar++
             this.correctLengthChar++
-            if (this.correctLengthChar === this.currentTask.length) {
-              this.$store.dispatch('completeTask', {status: true, active: false})
-            }
           } else {
             this.incorrectIndexes.push(this.activeChar)
             this.errorInput++
             this.activeChar++
             this.correctLengthChar++
-            if (this.correctLengthChar === this.currentTask.length) {
-              this.$store.dispatch('completeTask', {status: true, active: false})
-            }
           }
         }
       } else {
@@ -341,6 +339,11 @@ export default {
         this.isAnimation = false
       }, 500)
     },
+    handlerInput() {
+      if(!this.$store.state.isTaskDone) {
+        this.$refs.textInput.focus();
+      }
+    },
   },
   computed: {
     languages() {
@@ -371,6 +374,18 @@ export default {
   mounted() {
     this.updateRandomWord();
   },
+  watch: {
+    correctLengthChar(newVal) {
+      if (newVal === this.currentTask.length) {
+        this.completeTask();
+      }
+    },
+    timeTask(newVal) {
+      if(newVal === 0) {
+        this.completeTask()
+      }
+    }
+  }
 }
 </script>
 

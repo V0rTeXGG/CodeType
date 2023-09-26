@@ -3,9 +3,9 @@
 .main-wrapper {
   z-index: 1;
   position: relative;
-  padding: 40px;
-  background-color: $colorGrey;
-  border-radius: 20px;
+  //padding: 40px;
+  //background-color: $colorGrey;
+  //border-radius: 20px;
 }
 
 .transition-content {
@@ -17,7 +17,10 @@
   position: relative;
   z-index: -1;
   @include displayFlex;
-  margin-bottom: 110px;
+  margin-bottom: 70px;
+  padding: 25px 20px;
+  border-radius: 48px;
+  background-color: $colorGrey;
 }
 
 .main-info__quantity-block {
@@ -29,6 +32,11 @@
   .main-info__restart {
     position: absolute;
     right: 0;
+    transition: transform .15s ease;
+  }
+
+  .main-info__restart:hover {
+    transform: scale(120%);
   }
 
   .restart-img {
@@ -43,7 +51,6 @@
 .quentity-block__text {
   font-size: 25px;
   line-height: 98.023%;
-  letter-spacing: -0.8px;
   color: $colorOrange;
   transition: color .2s ease;
 }
@@ -58,8 +65,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   border: 2px solid $colorOrange;
   transform: translateX(-50%);
@@ -71,7 +78,7 @@
 }
 
 .main-info__timer__text {
-  font-size: 35px;
+  font-size: 30px;
   line-height: 98.023%;
   letter-spacing: -0.8px;
   color: $colorOrange;
@@ -182,16 +189,13 @@
 
 .main-task {
   position: relative;
-  min-height: 450px;
-  padding: 40px;
-  border-radius: 20px;
-  background-color: $colorBlack;
+  height: fit-content;
+  padding: 0 20px;
 }
 
 .main-task__code {
-  margin-bottom: 20px;
   font-size: 34px;
-  line-height: 98.023%;
+  line-height: 1.2;
   letter-spacing: -0.8px;
   color: $colorWhite;
   -webkit-touch-callout: none;
@@ -278,7 +282,7 @@
   @include displayFlex;
   justify-content: center;
   height: 119px;
-  margin-bottom: 180px;
+  margin-bottom: 110px;
   background-color: $colorOrange;
   border-radius: 20px;
 
