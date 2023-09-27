@@ -1,6 +1,7 @@
 @import "main";
 
 .sidebar {
+  //display: none;
   position: fixed;
   width: 115px;
   height: 100vh;
@@ -175,4 +176,20 @@
   letter-spacing: -0.6px;
   color: $colorOrange;
   text-transform: uppercase;
+}
+
+@media(max-width: 1440px) {
+
+  .sidebar-wrapper__block {
+    margin-bottom: 150px;
+  }
+
+}
+
+@media(max-width: 1200px) {
+
+  .sidebar-wrapper__block {
+    margin-bottom: 110px;
+  }
+
 }

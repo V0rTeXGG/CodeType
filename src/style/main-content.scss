@@ -3,9 +3,6 @@
 .main-wrapper {
   z-index: 1;
   position: relative;
-  //padding: 40px;
-  //background-color: $colorGrey;
-  //border-radius: 20px;
 }
 
 .transition-content {
@@ -28,24 +25,24 @@
   @include displayFlex;
   width: 130px;
   margin-right: 40px;
+}
 
-  .main-info__restart {
-    position: absolute;
-    right: 0;
-    transition: transform .15s ease;
-  }
+.main-info__restart {
+  position: absolute;
+  right: 0;
+  transition: transform .15s ease;
+}
 
-  .main-info__restart:hover {
-    transform: scale(120%);
-  }
+.main-info__restart:hover {
+  transform: scale(120%);
+}
 
-  .restart-img {
-    transition: stroke .2s ease;
-  }
+.restart-img {
+  transition: stroke .2s ease;
+}
 
-  .restart-img.blue {
-    stroke: $colorBlue;
-  }
+.restart-img.blue {
+  stroke: $colorBlue;
 }
 
 .quantity-block__text {
@@ -65,8 +62,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80px;
-  height: 80px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
   border: 2px solid $colorOrange;
   transform: translateX(-50%);
@@ -357,8 +354,7 @@
   grid-template-columns: repeat(2, 1fr);
   row-gap: 90px;
   max-width: 1500px;
-  margin: auto;
-  margin-bottom: 180px;
+  margin: 0 auto 130px auto;
 
   .statistics-info__block {
     display: flex;
@@ -420,6 +416,72 @@
       fill: $colorBlue;
     }
   }
+}
+
+@media(max-width: 1200px) {
+
+  .main-info {
+    padding: 15px 20px;
+  }
+
+  .main-info__timer {
+    width: 65px;
+    height: 65px;
+  }
+
+  .main-info__timer__text {
+    font-size: 25px;
+  }
+
+  .quantity-block__text {
+    font-size: 22px;
+  }
+
+  .main-info__restart {
+    transform: scale(90%);
+  }
+}
+
+@media(max-width: 980px) {
+
+  .main-info__timer {
+    width: 55px;
+    height: 55px;
+  }
+
+  .main-info__quantity-block {
+    align-items: normal;
+    max-width: 90px;
+    margin: 0;
+  }
+
+  .main-info__timer__text {
+    font-size: 21px;
+  }
+
+  .quantity-block__text {
+    font-size: 18px;
+  }
+
+  .main-info__restart {
+    transform: scale(80%);
+  }
+}
+
+@media(max-width: 768px) {
+
+  .main-info {
+    margin-bottom: 50px;
+  }
+
+}
+
+@media(max-width: 450px) {
+
+  .main-info__quantity-block {
+    max-width: 80px;
+  }
+
 }
 
 

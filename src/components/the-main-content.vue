@@ -392,12 +392,16 @@ export default {
       if(newVal === 0) {
         this.completeTask()
       }
+    },
+    taskBlur(newVal) {
+      if(newVal === true) {
+        window.addEventListener('keydown', this.closeBlur)
+      }
     }
   },
   mounted() {
     this.updateRandomWord();
     this.$refs.textInput.focus();
-    window.addEventListener('keydown', this.closeBlur)
   },
   beforeUnmount() {
     window.removeEventListener('keydown', this.closeBlur)
