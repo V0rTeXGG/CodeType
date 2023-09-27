@@ -7,6 +7,9 @@
   background-color: $colorGrey;
   transition: width .25s ease, transform .25s ease-in-out;
 }
+.sidebar.active {
+  transform: translateX(-100%);
+}
 
 .sidebar:hover {
   width: 229px;
