@@ -1,10 +1,8 @@
 @import "main";
 
 .sidebar {
-  //display: none;
   position: fixed;
   width: 115px;
-  height: 100vh;
   background-color: $colorGrey;
   transition: width .3s ease, transform .3s ease-in-out;
 }
@@ -49,6 +47,9 @@
 }
 
 .sidebar-wrapper__navigation {
+  display: grid;
+  grid-template-columns: 100%;
+  height: 100vh;
   margin-left: 20px;
   transition: all .3s ease;
 }
@@ -121,10 +122,6 @@
   }
 }
 
-.sidebar-wrapper__block {
-  margin-bottom: 170px;
-}
-
 .sidebar-wrapper__btn-block {
   position: relative;
   @include displayFlex;
@@ -180,16 +177,9 @@
 
 @media(max-width: 1440px) {
 
-  .sidebar-wrapper__block {
-    margin-bottom: 150px;
-  }
-
 }
 
 @media(max-width: 1200px) {
 
-  .sidebar-wrapper__block {
-    margin-bottom: 110px;
-  }
 
 }
