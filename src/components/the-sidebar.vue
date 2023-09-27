@@ -17,7 +17,7 @@
         </span>
         </router-link>
       </div>
-      <div class="sidebar-wrapper__navigation">
+<!--      <div class="sidebar-wrapper__navigation">-->
         <div class="sidebar-wrapper__block">
           <router-link v-if="this.$store.state.isAuthorization" tag="a" to="/statistic" class="sidebar-wrapper__btn-block">
             <svg class="sidebar-wrapper__img" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
@@ -132,11 +132,15 @@
             <span class="sidebar-wrapper__btn">Log Out</span>
           </button>
         </div>
-        <div class="sidebar-wrapper__botttom">
+        <div class="sidebar-wrapper__block">
   <!--        <p class="sidebar__wrapper__creator">Developer:</p>-->
           <a href='https://github.com/V0rTeXGG' target="_blank" class="sidebar-wrapper__btn-block">
             <img class="sidebar-wrapper__img" src="@/assets/img/sidebar/github-icon.svg" alt="github icon">
             <span  class="sidebar-wrapper__btn">V0rTeXGG</span>
+          </a>
+          <a href='https://github.com/regidf12' target="_blank" class="sidebar-wrapper__btn-block">
+            <img class="sidebar-wrapper__img" src="@/assets/img/sidebar/github-icon.svg" alt="github icon">
+            <span  class="sidebar-wrapper__btn">regidf12</span>
           </a>
   <!--        <p class="sidebar__wrapper__creator">DESIGNER:</p>-->
           <a href="https://www.behance.net/_Alexandra_Andreeva" target="_blank" class="sidebar-wrapper__btn-block">
@@ -144,7 +148,7 @@
             <span class="sidebar-wrapper__btn">Alexandra</span>
           </a>
         </div>
-      </div>
+<!--      </div>-->
     </div>
   </nav>
 </template>
