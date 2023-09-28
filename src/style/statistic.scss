@@ -15,49 +15,49 @@
 
 .statistics-account {
   max-width: 300px;
+}
 
-  .statistics-account__wrapper-data {
-    @include displayFlex;
-    margin-bottom: 15px;
-  }
+.statistics-account__wrapper-data {
+  @include displayFlex;
+  margin-bottom: 15px;
+}
 
-    .statistics-account-img {
-      width: 140px;
-      height: 140px;
-      margin-right: 16px;
-    }
+.statistics-account-img {
+  width: 140px;
+  height: 140px;
+  margin-right: 16px;
+}
 
-  .statistics-account__username {
-    font-size: 40px;
-    font-weight: 600;
-    letter-spacing: 1.1px;
-    color: $colorWhite;
-  }
+.statistics-account__username {
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+  color: $colorWhite;
+}
 
-  .statistics-account__level {
-    @include displayFlex;
-  }
+.statistics-account__level {
+  @include displayFlex;
+}
 
-  .statistics-account__level-num {
-    margin-right: 16px;
-    font-size: 28px;
-    font-weight: 600;
-  }
+.statistics-account__level-num {
+  margin-right: 16px;
+  font-size: 28px;
+  font-weight: 600;
+}
 
-  .statistics-account__level__bar {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    height: 5px;
-    border-radius: 3px;
-    background-color: $colorGreyLight;
-  }
+.statistics-account__level__bar {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 5px;
+  border-radius: 3px;
+  background-color: $colorGreyLight;
+}
 
-  .statistics-account__level__percent {
-    position: absolute;
-    height: 100%;
-    background-color: $colorOrange;
-  }
+.statistics-account__level__percent {
+  position: absolute;
+  height: 100%;
+  background-color: $colorOrange;
 }
 
 .statistics-wrapper__line {
@@ -72,18 +72,17 @@
   flex-direction: column;
   align-items: center;
   height: 100px;
+}
 
-  .statistics-wrapper__data__title {
-    margin-bottom: 25px;
-    font-size: 28px;
-    font-weight: 400;
-    line-height: normal;
-    color: $colorGreyLight;
-  }
+.statistics-wrapper__data__title {
+  margin-bottom: 25px;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: normal;
+  color: $colorGreyLight;
+}
 
-  .statistics-wrapper__data__value {
-    font-size: 52px;
-    font-weight: 600;
-
-  }
+.statistics-wrapper__data__value {
+  font-size: 52px;
+  font-weight: 600;
 }

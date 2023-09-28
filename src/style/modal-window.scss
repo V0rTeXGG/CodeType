@@ -49,51 +49,51 @@
   &:not(:last-child) {
     margin-bottom: 25px;
   }
+}
 
-  .modal-win__block__input {
-    z-index: 3;
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 15px 10px;
-    border-radius: 15px;
-    border: 2px solid $colorOrange;
-    font-size: 22px;
-    color: $colorOrange;
-    transition: border-color .3s ease;
-  }
+.modal-win__block__input {
+  z-index: 3;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 15px 10px;
+  border-radius: 15px;
+  border: 2px solid $colorOrange;
+  font-size: 22px;
+  color: $colorOrange;
+  transition: border-color .3s ease;
+}
 
-  .modal-win__block__input.blue {
-    border-color: $colorBlue;
-  }
+.modal-win__block__input.blue {
+  border-color: $colorBlue;
+}
 
-  .modal-win__block__placeholder {
-    z-index: 2;
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-70%);
-    font-size: 16px;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    transition: all .15s ease-in-out;
+.modal-win__block__placeholder {
+  z-index: 2;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-70%);
+  font-size: 16px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: all .15s ease-in-out;
 
-  }
-  .modal-win__block__placeholder.active {
-    top: 2px;
-    font-size: 12px;
-    transform: translateY(0);
-  }
+}
+.modal-win__block__placeholder.active {
+  top: 2px;
+  font-size: 12px;
+  transform: translateY(0);
+}
 
-  .modal-win-check {
-    position: absolute;
-    right: 15px;
-    transform: translateY(70%);
-    width: 20px;
-    fill: $colorOrange;
-  }
+.modal-win-check {
+  position: absolute;
+  right: 15px;
+  transform: translateY(70%);
+  width: 20px;
+  fill: $colorOrange;
 }
 
 .modal-win-check.error {
@@ -119,6 +119,7 @@
   color: $colorOrange;
   transition: color .3s ease;
 }
+
 .modal-win__block__enter.blue {
   color: $colorBlue;
 }

@@ -40,8 +40,8 @@
 .sidebar-wrapper {
   overflow: hidden;
   display: grid;
-    grid-template-columns: 100%;
-    align-content: space-between;
+  grid-template-columns: 100%;
+  align-content: space-between;
   height: 100vh;
   padding: 40px 20px;
   transition: all .25s ease;
@@ -99,13 +99,13 @@
 
 .sidebar-logo__wrap-small {
   transition: all .25s ease-in-out;
+}
 
-  .sidebar-logo__small {
-    transition: stroke .2s ease;
+.sidebar-logo__small {
+  transition: stroke .2s ease;
 
-    .blue {
-      stroke: $colorBlue;
-    }
+  .blue {
+    stroke: $colorBlue;
   }
 }
 
@@ -133,38 +133,38 @@
     margin-bottom: 36px;
   }
 
-  .sidebar-wrapper__img {
-    transition: all .25s ease-in-out;
-  }
+}
 
-  .sidebar-wrapper-path-stroke {
-    transition: stroke .2s ease;
-  }
+.sidebar-wrapper__img {
+  transition: all .25s ease-in-out;
+}
 
-  .sidebar-wrapper-path-stroke.blue {
-    stroke: $colorBlue;
-  }
+.sidebar-wrapper-path-stroke {
+  transition: stroke .2s ease;
+}
 
-  .sidebar-wrapper-path {
-    transition: fill .2s ease;
-  }
+.sidebar-wrapper-path-stroke.blue {
+  stroke: $colorBlue;
+}
 
-  .sidebar-wrapper-path.blue {
-    fill: $colorBlue;
-  }
+.sidebar-wrapper-path {
+  transition: fill .2s ease;
+}
 
-  .sidebar-wrapper__btn {
-    position: absolute;
-    left: 41px;
-    opacity: 0;
-    min-width: 100px;
-    text-align: start;
-    font-size: 24px;
-    line-height: 98.023%;
-    color: $colorWhite;
-    transition: all .25s ease-in-out;
-  }
+.sidebar-wrapper-path.blue {
+  fill: $colorBlue;
+}
 
+.sidebar-wrapper__btn {
+  position: absolute;
+  left: 41px;
+  opacity: 0;
+  min-width: 100px;
+  text-align: start;
+  font-size: 24px;
+  line-height: 98.023%;
+  color: $colorWhite;
+  transition: all .25s ease-in-out;
 }
 
 .sidebar-wrapper__btn-block:hover .sidebar-wrapper__img {
