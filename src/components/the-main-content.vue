@@ -76,7 +76,7 @@
                 oncut="return false"
                 autocapitalize="off"
                 spellcheck="false"
-                >
+            >
             <p class="main-task__code" :class="{animation: this.isAnimation}">
               <span
                   class="main-task__char"
@@ -264,7 +264,7 @@ export default {
       const self = this;
 
       self.timerId = setTimeout(function tick() {
-        if(self.isTimerStart) {
+        if (self.isTimerStart) {
           self.timeTask--;
           setTimeout(tick, 1000);
         }
@@ -342,7 +342,7 @@ export default {
       }, 500)
     },
     handlerInput() {
-      if(!this.$store.state.isTaskDone && !this.$store.state.isModalVis) {
+      if (!this.$store.state.isTaskDone && !this.$store.state.isModalVis) {
         console.log('check')
         this.$refs.textInput.focus();
       } else {
@@ -350,7 +350,7 @@ export default {
       }
     },
     closeBlur() {
-      if(this.taskBlur) {
+      if (this.taskBlur) {
         this.taskBlur = false;
         this.$refs.textInput.focus();
       }
@@ -389,12 +389,12 @@ export default {
       }
     },
     timeTask(newVal) {
-      if(newVal === 0) {
+      if (newVal === 0) {
         this.completeTask()
       }
     },
     taskBlur(newVal) {
-      if(newVal === true) {
+      if (newVal === true) {
         window.addEventListener('keydown', this.closeBlur)
       }
     }

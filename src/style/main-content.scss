@@ -28,13 +28,34 @@
 }
 
 .main-info__restart {
-  position: absolute;
+  position: relative;
   right: 0;
   transition: transform .15s ease;
+
+  &:after {
+    content: 'Restart task';
+    position: absolute;
+    bottom: -100%;
+    transform: translateX(-60%);
+    width: 120px;
+    padding: 5px 8px;
+    border-radius: 8px;
+    opacity: 0;
+    background-color: $colorBlack;
+    font-size: 18px;
+    letter-spacing: 1.2px;
+    color: $colorWhite;
+    transition: all .15s ease;
+  }
 }
 
 .main-info__restart:hover {
-  transform: scale(120%);
+  transform: scale(110%);
+
+  &:after {
+    bottom: -120%;
+    opacity: 1;
+  }
 }
 
 .restart-img {
