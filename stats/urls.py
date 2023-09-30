@@ -4,5 +4,6 @@ from django.views.generic import TemplateView
 from . import views
 
 urlpatterns = [
-    path('statistic/', TemplateView.as_view(template_name='index.html')),
+    path('', TemplateView.as_view(template_name='index.html')),
+    path('api/v1/statistic', views.StatsListView.as_view())
 ]
