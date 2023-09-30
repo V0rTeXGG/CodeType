@@ -110,7 +110,7 @@ export default createStore({
       },
       async completeTask({commit}, taskStatus) {
           try {
-              commit('updateTaskStatus', taskStatus.status)
+              // commit('updateTaskStatus', taskStatus.status)
               commit('updateActiveTask', taskStatus.active)
           } catch(error) {
               console.log(error)
@@ -118,7 +118,7 @@ export default createStore({
       },
       async restartTask({commit}, taskStatus) {
           try {
-              commit('updateTaskStatus', taskStatus);
+              // commit('updateTaskStatus', taskStatus);
               commit('updateActiveTask', taskStatus);
           } catch(error) {
               console.log(error)

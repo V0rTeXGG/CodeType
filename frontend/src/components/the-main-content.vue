@@ -1,8 +1,9 @@
 <template>
   <div class="main-wrapper" @click="handleClickOutside">
     <Transition name="fade" mode="out-in">
-      <template v-if="!this.$store.state.isTaskDone" key="taskTemplate">
-        <div v-if="!this.$store.state.isTaskDone" class="transition-content">
+<!--      !this.$store.state.isTaskDone-->
+      <template v-if="!isTaskDone" key="taskTemplate">
+        <div v-if="!isTaskDone" class="transition-content">
           <div class="main-info">
             <div class="main-info__quantity-block">
               <div class="quantity-block__wrapper">
@@ -272,7 +273,8 @@ export default {
     },
     completeTask() {
       clearTimeout(this.timerId);
-      this.isTimerStart = false
+      this.isTimerStart = false;
+      this.isTaskDone = true;
       this.$store.dispatch('completeTask', {status: true, active: false});
     },
     checkInput(event) {
@@ -311,6 +313,7 @@ export default {
     },
     restartTask() {
       this.$store.dispatch('restartTask', false);
+      this.isTaskDone = false;
       this.isRestartTask = true;
       this.userInput = '';
       this.inputChar = 0;
@@ -325,6 +328,7 @@ export default {
       this.startAnimationTask();
       this.updateRandomWord();
       this.$store.dispatch('restartTask', false);
+      this.isTaskDone = false;
       this.isRestartTask = true;
       this.userInput = '';
       this.inputChar = 0;
@@ -342,7 +346,7 @@ export default {
       }, 500)
     },
     handlerInput() {
-      if (!this.$store.state.isTaskDone && !this.$store.state.isModalVis) {
+      if (!this.isTaskDone && !this.$store.state.isModalVis) {
         console.log('check')
         this.$refs.textInput.focus();
       } else {
@@ -351,8 +355,8 @@ export default {
     },
     closeBlur() {
       if (this.taskBlur) {
-        this.taskBlur = false;
         this.$refs.textInput.focus();
+        this.taskBlur = false;
       }
     }
   },
@@ -369,18 +373,9 @@ export default {
     charPerMinute() {
       return ((this.correctLengthChar / 60) * 100).toFixed(0)
     },
-  },
-  beforeMount() {
-    for (let key in localStorage) {
-      if (key === 'selectLang') {
-        this.selectLang = JSON.parse(localStorage.getItem('selectLang'))
-        this.$store.commit('updateSelectLang', this.selectLang.lang)
-      }
-      if (key === 'isAuthorization') {
-        this.$store.state.isAuthorization = JSON.parse(localStorage.getItem('isAuthorization'))
-      }
-    }
-    this.listTask = this.selectLang.task
+    isModalVis() {
+      return this.$store.state.isModalVis
+    },
   },
   watch: {
     correctLengthChar(newVal) {
@@ -394,10 +389,37 @@ export default {
       }
     },
     taskBlur(newVal) {
-      if (newVal === true) {
+      if (newVal === true && !this.isTaskDone) {
+        if(newVal === true && !this.$store.state.isModalVis ) {
+          window.addEventListener('keydown', this.closeBlur)
+        }
+      }
+    },
+    isTaskDone(newVal) {
+      if(newVal === false) {
+        window.addEventListener('keydown', this.closeBlur)
+      }
+    },
+    isModalVis(newVal) {
+      if(newVal === true) {
+        this.$refs.textInput.blur();
+      }
+      if(newVal === false) {
         window.addEventListener('keydown', this.closeBlur)
       }
     }
+  },
+  beforeMount() {
+    for (let key in localStorage) {
+      if (key === 'selectLang') {
+        this.selectLang = JSON.parse(localStorage.getItem('selectLang'))
+        this.$store.commit('updateSelectLang', this.selectLang.lang)
+      }
+      if (key === 'isAuthorization') {
+        this.$store.state.isAuthorization = JSON.parse(localStorage.getItem('isAuthorization'))
+      }
+    }
+    this.listTask = this.selectLang.task
   },
   mounted() {
     this.updateRandomWord();

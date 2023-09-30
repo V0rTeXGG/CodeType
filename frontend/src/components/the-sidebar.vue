@@ -172,7 +172,6 @@
           <svg class="sidebar-wrapper__img" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                viewBox="0 0 24 24" fill="none">
             <path
-
                 class="sidebar-wrapper-path-stroke"
                 :class="{'blue': this.$store.state.selectLang === 'C++' || this.$store.state.selectLang === 'Python'}"
                 d="M9.81741 4.77148H5.8045C4.13019 4.77148 2.77197 6.1297 2.77197 7.80483V16.9666C2.77197 18.6418 4.13019 20 5.8045 20H9.82564"
