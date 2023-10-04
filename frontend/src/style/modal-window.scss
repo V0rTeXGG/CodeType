@@ -19,7 +19,7 @@
   flex-direction: column;
   align-items: center;
   width: 400px;
-  height: 500px;
+  height: auto;
   padding: 30px;
   border-radius: 30px;
   background-color: $colorGrey;
@@ -45,10 +45,7 @@
   flex-direction: column;
   align-items: start;
   width: 100%;
-
-  &:not(:last-child) {
-    margin-bottom: 25px;
-  }
+  margin-bottom: 25px;
 }
 
 .modal-win__block__input {
@@ -102,8 +99,7 @@
 }
 
 .modal-win__block__btn {
-  position: absolute;
-  bottom: 60px;
+  margin-bottom: 10px;
   font-size: 22px;
   font-weight: 600;
   letter-spacing: 2px;
@@ -112,8 +108,6 @@
 }
 
 .modal-win__block__enter {
-  position: absolute;
-  bottom: 25px;
   font-size: 18px;
   letter-spacing: 1.2px;
   color: $colorOrange;
