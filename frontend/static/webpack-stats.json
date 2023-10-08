@@ -1,205 +1,15 @@
 {
   "status": "done",
   "assets": {
-    "app.08ec4d958b4a18ac.hot-update.js": {
-      "name": "app.08ec4d958b4a18ac.hot-update.js",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.08ec4d958b4a18ac.hot-update.js",
-      "publicPath": "http://localhost:8080/app.08ec4d958b4a18ac.hot-update.js"
+    "app.c9e344789236b81a.hot-update.js": {
+      "name": "app.c9e344789236b81a.hot-update.js",
+      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.c9e344789236b81a.hot-update.js",
+      "publicPath": "http://localhost:8080/app.c9e344789236b81a.hot-update.js"
     },
-    "app.08ec4d958b4a18ac.hot-update.json": {
-      "name": "app.08ec4d958b4a18ac.hot-update.json",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.08ec4d958b4a18ac.hot-update.json",
-      "publicPath": "http://localhost:8080/app.08ec4d958b4a18ac.hot-update.json"
-    },
-    "app.0cb300204dd4f553.hot-update.js": {
-      "name": "app.0cb300204dd4f553.hot-update.js",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.0cb300204dd4f553.hot-update.js",
-      "publicPath": "http://localhost:8080/app.0cb300204dd4f553.hot-update.js"
-    },
-    "app.0cb300204dd4f553.hot-update.json": {
-      "name": "app.0cb300204dd4f553.hot-update.json",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.0cb300204dd4f553.hot-update.json",
-      "publicPath": "http://localhost:8080/app.0cb300204dd4f553.hot-update.json"
-    },
-    "app.1b47f5b6050edae7.hot-update.js": {
-      "name": "app.1b47f5b6050edae7.hot-update.js",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.1b47f5b6050edae7.hot-update.js",
-      "publicPath": "http://localhost:8080/app.1b47f5b6050edae7.hot-update.js"
-    },
-    "app.1b47f5b6050edae7.hot-update.json": {
-      "name": "app.1b47f5b6050edae7.hot-update.json",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.1b47f5b6050edae7.hot-update.json",
-      "publicPath": "http://localhost:8080/app.1b47f5b6050edae7.hot-update.json"
-    },
-    "app.20d515c376c1f9ef.hot-update.js": {
-      "name": "app.20d515c376c1f9ef.hot-update.js",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.20d515c376c1f9ef.hot-update.js",
-      "publicPath": "http://localhost:8080/app.20d515c376c1f9ef.hot-update.js"
-    },
-    "app.20d515c376c1f9ef.hot-update.json": {
-      "name": "app.20d515c376c1f9ef.hot-update.json",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.20d515c376c1f9ef.hot-update.json",
-      "publicPath": "http://localhost:8080/app.20d515c376c1f9ef.hot-update.json"
-    },
-    "app.268dd55b81515b34.hot-update.js": {
-      "name": "app.268dd55b81515b34.hot-update.js",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.268dd55b81515b34.hot-update.js",
-      "publicPath": "http://localhost:8080/app.268dd55b81515b34.hot-update.js"
-    },
-    "app.268dd55b81515b34.hot-update.json": {
-      "name": "app.268dd55b81515b34.hot-update.json",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.268dd55b81515b34.hot-update.json",
-      "publicPath": "http://localhost:8080/app.268dd55b81515b34.hot-update.json"
-    },
-    "app.2cdd50b7510b609a.hot-update.js": {
-      "name": "app.2cdd50b7510b609a.hot-update.js",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.2cdd50b7510b609a.hot-update.js",
-      "publicPath": "http://localhost:8080/app.2cdd50b7510b609a.hot-update.js"
-    },
-    "app.2cdd50b7510b609a.hot-update.json": {
-      "name": "app.2cdd50b7510b609a.hot-update.json",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.2cdd50b7510b609a.hot-update.json",
-      "publicPath": "http://localhost:8080/app.2cdd50b7510b609a.hot-update.json"
-    },
-    "app.355483872ae51d0b.hot-update.js": {
-      "name": "app.355483872ae51d0b.hot-update.js",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.355483872ae51d0b.hot-update.js",
-      "publicPath": "http://localhost:8080/app.355483872ae51d0b.hot-update.js"
-    },
-    "app.355483872ae51d0b.hot-update.json": {
-      "name": "app.355483872ae51d0b.hot-update.json",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.355483872ae51d0b.hot-update.json",
-      "publicPath": "http://localhost:8080/app.355483872ae51d0b.hot-update.json"
-    },
-    "app.4518d7ebda0a067b.hot-update.js": {
-      "name": "app.4518d7ebda0a067b.hot-update.js",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.4518d7ebda0a067b.hot-update.js",
-      "publicPath": "http://localhost:8080/app.4518d7ebda0a067b.hot-update.js"
-    },
-    "app.4518d7ebda0a067b.hot-update.json": {
-      "name": "app.4518d7ebda0a067b.hot-update.json",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.4518d7ebda0a067b.hot-update.json",
-      "publicPath": "http://localhost:8080/app.4518d7ebda0a067b.hot-update.json"
-    },
-    "app.6f4705396d66d9a8.hot-update.js": {
-      "name": "app.6f4705396d66d9a8.hot-update.js",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.6f4705396d66d9a8.hot-update.js",
-      "publicPath": "http://localhost:8080/app.6f4705396d66d9a8.hot-update.js"
-    },
-    "app.6f4705396d66d9a8.hot-update.json": {
-      "name": "app.6f4705396d66d9a8.hot-update.json",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.6f4705396d66d9a8.hot-update.json",
-      "publicPath": "http://localhost:8080/app.6f4705396d66d9a8.hot-update.json"
-    },
-    "app.70f1f0d0f22ab563.hot-update.js": {
-      "name": "app.70f1f0d0f22ab563.hot-update.js",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.70f1f0d0f22ab563.hot-update.js",
-      "publicPath": "http://localhost:8080/app.70f1f0d0f22ab563.hot-update.js"
-    },
-    "app.70f1f0d0f22ab563.hot-update.json": {
-      "name": "app.70f1f0d0f22ab563.hot-update.json",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.70f1f0d0f22ab563.hot-update.json",
-      "publicPath": "http://localhost:8080/app.70f1f0d0f22ab563.hot-update.json"
-    },
-    "app.7221a7d52e2532d1.hot-update.js": {
-      "name": "app.7221a7d52e2532d1.hot-update.js",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.7221a7d52e2532d1.hot-update.js",
-      "publicPath": "http://localhost:8080/app.7221a7d52e2532d1.hot-update.js"
-    },
-    "app.7221a7d52e2532d1.hot-update.json": {
-      "name": "app.7221a7d52e2532d1.hot-update.json",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.7221a7d52e2532d1.hot-update.json",
-      "publicPath": "http://localhost:8080/app.7221a7d52e2532d1.hot-update.json"
-    },
-    "app.79c038740d76c780.hot-update.js": {
-      "name": "app.79c038740d76c780.hot-update.js",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.79c038740d76c780.hot-update.js",
-      "publicPath": "http://localhost:8080/app.79c038740d76c780.hot-update.js"
-    },
-    "app.79c038740d76c780.hot-update.json": {
-      "name": "app.79c038740d76c780.hot-update.json",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.79c038740d76c780.hot-update.json",
-      "publicPath": "http://localhost:8080/app.79c038740d76c780.hot-update.json"
-    },
-    "app.7c4e0f6c6fc5cb0b.hot-update.js": {
-      "name": "app.7c4e0f6c6fc5cb0b.hot-update.js",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.7c4e0f6c6fc5cb0b.hot-update.js",
-      "publicPath": "http://localhost:8080/app.7c4e0f6c6fc5cb0b.hot-update.js"
-    },
-    "app.7c4e0f6c6fc5cb0b.hot-update.json": {
-      "name": "app.7c4e0f6c6fc5cb0b.hot-update.json",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.7c4e0f6c6fc5cb0b.hot-update.json",
-      "publicPath": "http://localhost:8080/app.7c4e0f6c6fc5cb0b.hot-update.json"
-    },
-    "app.b097484106a6a09d.hot-update.js": {
-      "name": "app.b097484106a6a09d.hot-update.js",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.b097484106a6a09d.hot-update.js",
-      "publicPath": "http://localhost:8080/app.b097484106a6a09d.hot-update.js"
-    },
-    "app.b097484106a6a09d.hot-update.json": {
-      "name": "app.b097484106a6a09d.hot-update.json",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.b097484106a6a09d.hot-update.json",
-      "publicPath": "http://localhost:8080/app.b097484106a6a09d.hot-update.json"
-    },
-    "app.b1dfa8418cb8c7ba.hot-update.js": {
-      "name": "app.b1dfa8418cb8c7ba.hot-update.js",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.b1dfa8418cb8c7ba.hot-update.js",
-      "publicPath": "http://localhost:8080/app.b1dfa8418cb8c7ba.hot-update.js"
-    },
-    "app.b1dfa8418cb8c7ba.hot-update.json": {
-      "name": "app.b1dfa8418cb8c7ba.hot-update.json",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.b1dfa8418cb8c7ba.hot-update.json",
-      "publicPath": "http://localhost:8080/app.b1dfa8418cb8c7ba.hot-update.json"
-    },
-    "app.b523631c94691015.hot-update.js": {
-      "name": "app.b523631c94691015.hot-update.js",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.b523631c94691015.hot-update.js",
-      "publicPath": "http://localhost:8080/app.b523631c94691015.hot-update.js"
-    },
-    "app.b523631c94691015.hot-update.json": {
-      "name": "app.b523631c94691015.hot-update.json",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.b523631c94691015.hot-update.json",
-      "publicPath": "http://localhost:8080/app.b523631c94691015.hot-update.json"
-    },
-    "app.cd4b53dfd41138ad.hot-update.js": {
-      "name": "app.cd4b53dfd41138ad.hot-update.js",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.cd4b53dfd41138ad.hot-update.js",
-      "publicPath": "http://localhost:8080/app.cd4b53dfd41138ad.hot-update.js"
-    },
-    "app.cd4b53dfd41138ad.hot-update.json": {
-      "name": "app.cd4b53dfd41138ad.hot-update.json",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.cd4b53dfd41138ad.hot-update.json",
-      "publicPath": "http://localhost:8080/app.cd4b53dfd41138ad.hot-update.json"
-    },
-    "app.cf8b873dd6ae94d0.hot-update.js": {
-      "name": "app.cf8b873dd6ae94d0.hot-update.js",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.cf8b873dd6ae94d0.hot-update.js",
-      "publicPath": "http://localhost:8080/app.cf8b873dd6ae94d0.hot-update.js"
-    },
-    "app.cf8b873dd6ae94d0.hot-update.json": {
-      "name": "app.cf8b873dd6ae94d0.hot-update.json",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.cf8b873dd6ae94d0.hot-update.json",
-      "publicPath": "http://localhost:8080/app.cf8b873dd6ae94d0.hot-update.json"
-    },
-    "app.ed360c125ba8a41f.hot-update.js": {
-      "name": "app.ed360c125ba8a41f.hot-update.js",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.ed360c125ba8a41f.hot-update.js",
-      "publicPath": "http://localhost:8080/app.ed360c125ba8a41f.hot-update.js"
-    },
-    "app.ed360c125ba8a41f.hot-update.json": {
-      "name": "app.ed360c125ba8a41f.hot-update.json",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.ed360c125ba8a41f.hot-update.json",
-      "publicPath": "http://localhost:8080/app.ed360c125ba8a41f.hot-update.json"
-    },
-    "app.fd411e2fdd2fe12d.hot-update.js": {
-      "name": "app.fd411e2fdd2fe12d.hot-update.js",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.fd411e2fdd2fe12d.hot-update.js",
-      "publicPath": "http://localhost:8080/app.fd411e2fdd2fe12d.hot-update.js"
-    },
-    "app.fd411e2fdd2fe12d.hot-update.json": {
-      "name": "app.fd411e2fdd2fe12d.hot-update.json",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.fd411e2fdd2fe12d.hot-update.json",
-      "publicPath": "http://localhost:8080/app.fd411e2fdd2fe12d.hot-update.json"
+    "app.c9e344789236b81a.hot-update.json": {
+      "name": "app.c9e344789236b81a.hot-update.json",
+      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.c9e344789236b81a.hot-update.json",
+      "publicPath": "http://localhost:8080/app.c9e344789236b81a.hot-update.json"
     },
     "favicon.ico": {
       "name": "favicon.ico",
@@ -271,7 +81,7 @@
     "app": [
       "js/chunk-vendors.js",
       "js/app.js",
-      "app.79c038740d76c780.hot-update.js"
+      "app.c9e344789236b81a.hot-update.js"
     ]
   },
   "publicPath": "http://localhost:8080/"

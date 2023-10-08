@@ -7,7 +7,7 @@
               :class="{'blue': this.$store.state.selectLang === 'C++'}">Registration</p>
           <div class="modal-win__block">
             <input
-                v-model.trim="username"
+                v-model.trim="userData.username"
                 @focus="isInputFocusName = true;"
                 @blur="isInputFocusName = false"
                 @keyup="checkName"
@@ -16,7 +16,7 @@
                 :class="{'blue': this.$store.state.selectLang === 'C++'}">
             <span
                 class="modal-win__block__placeholder"
-                :class="{active: isInputFocusName || username !== ''}">
+                :class="{active: isInputFocusName || userData.username !== ''}">
             name
             </span>
             <svg v-if="isCheckName === true" class="modal-win-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -28,7 +28,7 @@
           </div>
           <div class="modal-win__block">
             <input
-                v-model.trim="userEmail"
+                v-model.trim="userData.email"
                 @focus="isInputFocusEmail = true;"
                 @blur="isInputFocusEmail = false"
                 @keyup="checkEmail"
@@ -37,7 +37,7 @@
                 :class="{'blue': this.$store.state.selectLang === 'C++'}">
             <span
                 class="modal-win__block__placeholder"
-                :class="{active: isInputFocusEmail || userEmail !== ''}">
+                :class="{active: isInputFocusEmail || userData.email !== ''}">
             email
             </span>
             <svg v-if="isCheckEmail=== true" class="modal-win-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -49,7 +49,7 @@
           </div>
           <div class="modal-win__block">
             <input
-                v-model.trim="userPassword"
+                v-model.trim="userData.password"
                 @focus="isInputFocusPass = true"
                 @blur="isInputFocusPass = false; checkPass()"
                 type="password"
@@ -57,7 +57,7 @@
                 :class="{'blue': this.$store.state.selectLang === 'C++'}">
             <span
                 class="modal-win__block__placeholder"
-                :class="{active: isInputFocusPass || userPassword !== ''}">
+                :class="{active: isInputFocusPass || userData.password !== ''}">
             password
             </span>
             <svg v-if="isValidPassword === true" class="modal-win-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -102,7 +102,7 @@
           <p class="modal-win__title" :class="{'blue': this.$store.state.selectLang === 'C++'}">Sign in</p>
           <div class="modal-win__block">
             <input
-                v-model.trim="userEmail"
+                v-model.trim="userData.email"
                 @focus="isInputFocusEmail = true;"
                 @blur="isInputFocusEmail = false"
                 @keyup="checkEmail"
@@ -111,13 +111,13 @@
                 :class="{'blue': this.$store.state.selectLang === 'C++'}">
             <span
                 class="modal-win__block__placeholder"
-                :class="{active: isInputFocusEmail || userEmail !== ''}">
+                :class="{active: isInputFocusEmail || userData.email !== ''}">
             email
             </span>
           </div>
           <div class="modal-win__block">
             <input
-                v-model.trim="userPassword"
+                v-model.trim="userData.password"
                 @focus="isInputFocusPass = true"
                 @blur="isInputFocusPass = false"
                 type="password"
@@ -125,7 +125,7 @@
                 :class="{'blue': this.$store.state.selectLang === 'C++'}">
             <span
                 class="modal-win__block__placeholder"
-                :class="{active: isInputFocusPass || userPassword !== ''}">
+                :class="{active: isInputFocusPass || userData.password !== ''}">
             password
             </span>
           </div>
@@ -145,9 +145,6 @@
 
 <script>
 import {mapState} from "vuex";
-// import {regestration} from "@/services/users";
-
-// export * as users from '@/services/users'
 
 import api from '../services/api'
 import axios from 'axios'
@@ -175,43 +172,42 @@ export default {
       isInputFocusVerPass: false,
       isValidPassword: null,
 
-
+      userData: {
+        email: '',
+        username: '',
+        password: '',
+      }
     }
   },
   methods: {
     async submitForm() {
-      const presentUser = {
-        email: this.userEmail,
-        username: this.username,
-        password: this.userPassword,
+      if( !this.isValidPassword || !this.isCheckPass || !this.isCheckName || !this.isCheckEmail) {
+        this.$store.commit('updateErrorMassageCurrent', true)
+      } else if(this.userData.username === '' || this.userData.email === '' || this.userData.password === '' || this.verifiedPassword === '') {
+        this.$store.commit('updateErrorMassageVoid', true)
       }
-      const response = await api.post('/api/v1/users/', presentUser)
+      const response = await api.post('/api/v1/users/', this.userData)
         .then(response => {
           console.log(response)
+          this.resetModalWin()
         })
         .catch(error => {
-          alert('error')
+          alert(error)
         })
     },
-    // submitForm() {
-    //   if(this.username === '' || this.userEmail === '' || this.userPassword === '' || this.verifiedPassword === '') {
-    //     this.$store.commit('updateErrorMassageVoid', true)
-    //   }
-    //   else if( !this.isValidPassword || !this.isCheckPass || !this.isCheckName || !this.isCheckEmail) {
-    //     this.$store.commit('updateErrorMassageCurrent', true)
-    //   } else {
-    //     this.$store.commit('updateModalStatus', false);
-    //     this.$store.commit('updateStatusAuthorization', true);
-    //     this.$store.commit('closeErrorMassage', false)
-    //     this.username = '';
-    //     this.userPassword = '';
-    //     this.verifiedPassword = '';
-    //     this.isCheckFieldPass = null;
-    //     this.isCheckName = null;
-    //     this.isCheckPass = null;
-    //     this.isValidPassword = null;
-    //   }
-    // },
+    resetModalWin() {
+      this.$store.commit('updateModalStatus', false);
+      this.$store.commit('updateStatusAuthorization', true);
+      this.$store.commit('closeErrorMassage', false)
+      this.userData.username = '';
+      this.userData.email = '';
+      this.userData.password = '';
+      this.verifiedPassword = '';
+      this.isCheckFieldPass = null;
+      this.isCheckName = null;
+      this.isCheckPass = null;
+      this.isValidPassword = null;
+    },
     submitFormEnter() {
       if(this.username === '' || this.userPassword === '') {
         this.$store.commit('updateErrorMassageVoid', true)
@@ -223,9 +219,9 @@ export default {
     },
     switchForm() {
       this.ModalEnter = !this.ModalEnter;
-      this.username = '';
+      this.userData.username = '';
       this.isCheckName = null;
-      this.userPassword = '';
+      this.userData.password = '';
       this.isCheckPass = null;
       this.verifiedPassword = '';
       this.isValidPassword = null;
@@ -237,32 +233,22 @@ export default {
       }
     },
     checkName() {
-      this.username !== '' && this.username.length < 20 ? this.isCheckName = true : this.isCheckName = false
+      this.userData.username !== '' && this.userData.username.length < 20 ? this.isCheckName = true : this.isCheckName = false
     },
     checkEmail() {
       let re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      this.isCheckEmail = re.test(this.userEmail);
+      this.isCheckEmail = re.test(this.userData.email);
     },
     checkPass() {
-      if(this.userPassword !== '') {
-        return this.userPassword.length >= 8 ? this.isValidPassword = true : this.isValidPassword = false
+      if(this.userData.password !== '') {
+        return this.userData.password.length >= 8 ? this.isValidPassword = true : this.isValidPassword = false
       } else {
       }
     },
     checkVerifiedPass() {
-      this.userPassword !== this.verifiedPassword ? this.isCheckPass = false : this.isCheckPass = true
+      this.userData.password !== this.verifiedPassword ? this.isCheckPass = false : this.isCheckPass = true
     }
   },
-  mounted() {
-    for(let key in localStorage) {
-      if(key === 'password') {
-        this.$store.commit('setUserPassword', JSON.parse(localStorage.getItem('password')));
-      }
-      if(key === 'username') {
-        this.$store.commit('setusername', JSON.parse(localStorage.getItem('username')));
-      }
-    }
-  }
 }
 </script>
 
