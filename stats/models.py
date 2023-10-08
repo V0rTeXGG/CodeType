@@ -1,8 +1,10 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Stats(models.Model):
-    id = models.BigIntegerField(primary_key=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True,
+                                related_name='stats_user')
     complete_tasks = models.BigIntegerField(default=0)
     time_tasks = models.BigIntegerField(default=0)
     level = models.BigIntegerField(default=0)
@@ -18,7 +20,6 @@ class Stats(models.Model):
     py_aim = models.BigIntegerField(default=0)
     py_speed = models.BigIntegerField(default=0)
     py_avg = models.BigIntegerField(default=0)
-    user_id_stats = models.BigIntegerField()
 
     def __int__(self):
-        return self.user_id_stats
+        return self.user
