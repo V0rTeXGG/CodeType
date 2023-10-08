@@ -1,6 +1,7 @@
 {
   "status": "done",
   "assets": {
+<<<<<<< HEAD
     "app.004ec980887d6eeb.hot-update.js": {
       "name": "app.004ec980887d6eeb.hot-update.js",
       "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.004ec980887d6eeb.hot-update.js",
@@ -110,70 +111,81 @@
       "name": "app.f41b18cae6c7c5be.hot-update.json",
       "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\app.f41b18cae6c7c5be.hot-update.json",
       "publicPath": "http://localhost:8080/app.f41b18cae6c7c5be.hot-update.json"
+=======
+    "app.85e996d72e84bc68.hot-update.js": {
+      "name": "app.85e996d72e84bc68.hot-update.js",
+      "path": "C:\\Git_project\\CodeType\\frontend\\static\\app.85e996d72e84bc68.hot-update.js",
+      "publicPath": "http://localhost:8080/app.85e996d72e84bc68.hot-update.js"
+    },
+    "app.85e996d72e84bc68.hot-update.json": {
+      "name": "app.85e996d72e84bc68.hot-update.json",
+      "path": "C:\\Git_project\\CodeType\\frontend\\static\\app.85e996d72e84bc68.hot-update.json",
+      "publicPath": "http://localhost:8080/app.85e996d72e84bc68.hot-update.json"
+>>>>>>> c3525600148b8f7de3e4e76743b75688f8234e07
     },
     "favicon.ico": {
       "name": "favicon.ico",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\favicon.ico",
+      "path": "C:\\Git_project\\CodeType\\frontend\\static\\favicon.ico",
       "publicPath": "http://localhost:8080/favicon.ico"
     },
     "fonts/NeueMachina-Ultrabold.663efa66.woff": {
       "name": "fonts/NeueMachina-Ultrabold.663efa66.woff",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\fonts\\NeueMachina-Ultrabold.663efa66.woff",
+      "path": "C:\\Git_project\\CodeType\\frontend\\static\\fonts\\NeueMachina-Ultrabold.663efa66.woff",
       "publicPath": "http://localhost:8080/fonts/NeueMachina-Ultrabold.663efa66.woff"
     },
     "img/alerts-icon.25028d5c.svg": {
       "name": "img/alerts-icon.25028d5c.svg",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\img\\alerts-icon.25028d5c.svg",
+      "path": "C:\\Git_project\\CodeType\\frontend\\static\\img\\alerts-icon.25028d5c.svg",
       "publicPath": "http://localhost:8080/img/alerts-icon.25028d5c.svg"
     },
     "img/behance-icon.aa856212.svg": {
       "name": "img/behance-icon.aa856212.svg",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\img\\behance-icon.aa856212.svg",
+      "path": "C:\\Git_project\\CodeType\\frontend\\static\\img\\behance-icon.aa856212.svg",
       "publicPath": "http://localhost:8080/img/behance-icon.aa856212.svg"
     },
     "img/C-icon.68a743b7.svg": {
       "name": "img/C-icon.68a743b7.svg",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\img\\C-icon.68a743b7.svg",
+      "path": "C:\\Git_project\\CodeType\\frontend\\static\\img\\C-icon.68a743b7.svg",
       "publicPath": "http://localhost:8080/img/C-icon.68a743b7.svg"
     },
     "img/github-icon.bf2ea850.svg": {
       "name": "img/github-icon.bf2ea850.svg",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\img\\github-icon.bf2ea850.svg",
+      "path": "C:\\Git_project\\CodeType\\frontend\\static\\img\\github-icon.bf2ea850.svg",
       "publicPath": "http://localhost:8080/img/github-icon.bf2ea850.svg"
     },
     "img/js-icon.8ff59b4c.svg": {
       "name": "img/js-icon.8ff59b4c.svg",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\img\\js-icon.8ff59b4c.svg",
+      "path": "C:\\Git_project\\CodeType\\frontend\\static\\img\\js-icon.8ff59b4c.svg",
       "publicPath": "http://localhost:8080/img/js-icon.8ff59b4c.svg"
     },
     "img/python-icon.26782d62.svg": {
       "name": "img/python-icon.26782d62.svg",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\img\\python-icon.26782d62.svg",
+      "path": "C:\\Git_project\\CodeType\\frontend\\static\\img\\python-icon.26782d62.svg",
       "publicPath": "http://localhost:8080/img/python-icon.26782d62.svg"
     },
     "index.html": {
       "name": "index.html",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\index.html",
+      "path": "C:\\Git_project\\CodeType\\frontend\\static\\index.html",
       "publicPath": "http://localhost:8080/index.html"
     },
     "js/app.js": {
       "name": "js/app.js",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\js\\app.js",
+      "path": "C:\\Git_project\\CodeType\\frontend\\static\\js\\app.js",
       "publicPath": "http://localhost:8080/js/app.js"
     },
     "js/chunk-vendors.js": {
       "name": "js/chunk-vendors.js",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\js\\chunk-vendors.js",
+      "path": "C:\\Git_project\\CodeType\\frontend\\static\\js\\chunk-vendors.js",
       "publicPath": "http://localhost:8080/js/chunk-vendors.js"
     },
     "js/src_views_home_vue.js": {
       "name": "js/src_views_home_vue.js",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\js\\src_views_home_vue.js",
+      "path": "C:\\Git_project\\CodeType\\frontend\\static\\js\\src_views_home_vue.js",
       "publicPath": "http://localhost:8080/js/src_views_home_vue.js"
     },
     "js/src_views_statistic-page_vue.js": {
       "name": "js/src_views_statistic-page_vue.js",
-      "path": "C:\\Users\\mackk\\Desktop\\project\\CodeType\\frontend\\static\\js\\src_views_statistic-page_vue.js",
+      "path": "C:\\Git_project\\CodeType\\frontend\\static\\js\\src_views_statistic-page_vue.js",
       "publicPath": "http://localhost:8080/js/src_views_statistic-page_vue.js"
     }
   },
@@ -181,7 +193,11 @@
     "app": [
       "js/chunk-vendors.js",
       "js/app.js",
+<<<<<<< HEAD
       "app.8a5f9ac3fc63e490.hot-update.js"
+=======
+      "app.85e996d72e84bc68.hot-update.js"
+>>>>>>> c3525600148b8f7de3e4e76743b75688f8234e07
     ]
   },
   "publicPath": "http://localhost:8080/"
