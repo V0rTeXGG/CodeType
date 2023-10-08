@@ -145,8 +145,12 @@
 
 <script>
 import {mapState} from "vuex";
+// import {regestration} from "@/services/users";
 
-export * as users from '@/services/users'
+// export * as users from '@/services/users'
+
+import api from '../services/api'
+import axios from 'axios'
 export default {
   name: 'the-modal-win',
   data() {
@@ -175,27 +179,39 @@ export default {
     }
   },
   methods: {
-    submitForm() {
-      if(this.username === '' || this.userEmail === '' || this.userPassword === '' || this.verifiedPassword === '') {
-        this.$store.commit('updateErrorMassageVoid', true)
+    async submitForm() {
+      const presentUser = {
+        email: this.userEmail,
+        username: this.username,
+        password: this.userPassword,
       }
-      else if( !this.isValidPassword || !this.isCheckPass || !this.isCheckName || !this.isCheckEmail) {
-        this.$store.commit('updateErrorMassageCurrent', true)
-      } else {
-        this.$store.commit('updateModalStatus', false);
-        this.$store.commit('setusername', this.username);
-        this.$store.commit('setUserPassword', this.userPassword);
-        this.$store.commit('updateStatusAuthorization', true);
-        this.$store.commit('closeErrorMassage', false)
-        this.username = '';
-        this.userPassword = '';
-        this.verifiedPassword = '';
-        this.isCheckFieldPass = null;
-        this.isCheckName = null;
-        this.isCheckPass = null;
-        this.isValidPassword = null;
-      }
+      const response = await api.post('/api/v1/users/', presentUser)
+        .then(response => {
+          console.log(response)
+        })
+        .catch(error => {
+          alert('error')
+        })
     },
+    // submitForm() {
+    //   if(this.username === '' || this.userEmail === '' || this.userPassword === '' || this.verifiedPassword === '') {
+    //     this.$store.commit('updateErrorMassageVoid', true)
+    //   }
+    //   else if( !this.isValidPassword || !this.isCheckPass || !this.isCheckName || !this.isCheckEmail) {
+    //     this.$store.commit('updateErrorMassageCurrent', true)
+    //   } else {
+    //     this.$store.commit('updateModalStatus', false);
+    //     this.$store.commit('updateStatusAuthorization', true);
+    //     this.$store.commit('closeErrorMassage', false)
+    //     this.username = '';
+    //     this.userPassword = '';
+    //     this.verifiedPassword = '';
+    //     this.isCheckFieldPass = null;
+    //     this.isCheckName = null;
+    //     this.isCheckPass = null;
+    //     this.isValidPassword = null;
+    //   }
+    // },
     submitFormEnter() {
       if(this.username === '' || this.userPassword === '') {
         this.$store.commit('updateErrorMassageVoid', true)

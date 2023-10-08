@@ -1,6 +1,8 @@
 import api from './api';
 
-export async function index() {
-    const responce = await api.get('/users', {})
+export async function registration(data) {
+    const responce = await api.get('/api/v1/users/', {
+
+    })
     return responce.data
 }
