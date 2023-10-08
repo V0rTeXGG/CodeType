@@ -176,15 +176,12 @@ export default {
       showModal: true,
       ModalEnter: false,
 
-      username: '',
       isCheckName: null,
       isInputFocusName: false,
 
-      userEmail: '',
       isCheckEmail: null,
       isInputFocusEmail: false,
 
-      userPassword: '',
       isCheckFieldPass: null,
       isInputFocusPass: false,
       isCheckPass: null,
@@ -207,14 +204,14 @@ export default {
       } else if (this.userData.username === '' || this.userData.email === '' || this.userData.password === '' || this.verifiedPassword === '') {
         this.$store.commit('updateErrorMassageVoid', true)
       }
+
       const response = await api.post('/api/v1/users/', this.userData)
           .then(response => {
-            console.log(response)
             this.resetModalWin()
-            this.authorization(this.userData)
+            this.authorization( this.userData)
           })
           .catch(error => {
-            alert(error)
+            console.log(error)
           })
     },
     async authorization(presentUser) {
@@ -226,8 +223,10 @@ export default {
           .then(response => {
             this.$store.commit('setAccess', response.data.access)
             this.$store.commit('setRefresh', response.data.refresh)
+            this.$store.commit('setUserName', response.data.username)
             this.$store.commit('updateStatusAuthorization', true)
             location.reload()
+            console.log('12121')
           })
           .catch(error => {
             console.log(error)
