@@ -76,11 +76,11 @@ export default createStore({
         },
         setAccess(state, access) {
             state.access = access
-            localStorage.setItem('access', JSON.stringify(state.access))
+            localStorage.setItem('access', (state.access))
         },
         setRefresh(state, refresh) {
             state.refresh = refresh
-            localStorage.setItem('refresh', JSON.stringify(state.refresh))
+            localStorage.setItem('refresh', state.refresh)
         },
         updateTaskStatus(state, newVal) {
             state.isTaskDone = newVal
@@ -100,6 +100,7 @@ export default createStore({
         },
         setUserName(state, newVal) {
             state.username = newVal
+            localStorage.setItem('username', state.username)
         },
         setUserPassword(state, newVal) {
             state.userPassword = newVal

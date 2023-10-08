@@ -55,6 +55,7 @@
 <script>
 import TheModalWin from "@/components/the-modal-window.vue";
 import TheMassage from "@/components/the-message.vue";
+import api from "@/services/api";
 
 export default {
   name: 'the-header',
@@ -73,7 +74,20 @@ export default {
     },
     openPageMain() {
       this.$router.push('/')
-    }
+    },
+    async getUsername() {
+      const response = await api.get('/api/v1/users/me')
+          .then(response => {
+            this.$store.state('setUserName', response.data.username)
+            console.log(response.data.username)
+          })
+          .catch(error => {
+            console.log(error)
+          })
+    },
+  },
+  mounted() {
+    this.getUsername()
   }
 }
 </script>

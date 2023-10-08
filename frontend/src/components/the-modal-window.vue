@@ -173,6 +173,7 @@ export default {
   name: 'the-modal-win',
   data() {
     return {
+      username: '',
       showModal: true,
       ModalEnter: false,
 
@@ -204,11 +205,10 @@ export default {
       } else if (this.userData.username === '' || this.userData.email === '' || this.userData.password === '' || this.verifiedPassword === '') {
         this.$store.commit('updateErrorMassageVoid', true)
       }
-
       const response = await api.post('/api/v1/users/', this.userData)
           .then(response => {
+            this.authorization(this.userData)
             this.resetModalWin()
-            this.authorization( this.userData)
           })
           .catch(error => {
             console.log(error)
@@ -216,17 +216,16 @@ export default {
     },
     async authorization(presentUser) {
       axios.defaults.headers.common['Authorization'] = ''
-      if(localStorage.getItem('access')) {
+      if (localStorage.getItem('access')) {
         localStorage.removeItem('access')
       }
       const response = api.post('/api/v1/jwt/create/', presentUser)
           .then(response => {
             this.$store.commit('setAccess', response.data.access)
             this.$store.commit('setRefresh', response.data.refresh)
-            this.$store.commit('setUserName', response.data.username)
+            axios.defaults.headers.common['Authorization'] = 'JWT ' + response.data.access
             this.$store.commit('updateStatusAuthorization', true)
-            location.reload()
-            console.log('12121')
+            // location.reload();
           })
           .catch(error => {
             console.log(error)
@@ -234,7 +233,7 @@ export default {
     },
     async logIn(presentUser) {
       axios.defaults.headers.common['Authorization'] = ''
-      if(localStorage.getItem('access')) {
+      if (localStorage.getItem('access')) {
         localStorage.removeItem('access')
       }
       axios.post('/api/v1/jwt/create/', presentUser)
@@ -243,7 +242,7 @@ export default {
             this.$store.commit('setRefresh', response.data.refresh)
             axios.defaults.headers.common['Authorization'] = 'JWT ' + response.data.access
             this.$store.commit('updateStatusAuthorization', true)
-            location.reload();
+
             console.log(response)
           })
           .catch(error => {
@@ -254,10 +253,10 @@ export default {
       this.$store.commit('updateModalStatus', false);
       this.$store.commit('updateStatusAuthorization', true);
       this.$store.commit('closeErrorMassage', false)
-      this.userData.username = '';
-      this.userData.email = '';
-      this.userData.password = '';
-      this.verifiedPassword = '';
+      // this.userData.username = '';
+      // this.userData.email = '';
+      // this.userData.password = '';
+      // this.verifiedPassword = '';
       this.isCheckFieldPass = null;
       this.isCheckName = null;
       this.isCheckPass = null;
