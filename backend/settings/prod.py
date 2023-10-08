@@ -6,7 +6,7 @@ ALLOWED_HOSTS = ['*']
 WEBPACK_LOADER = {
     'DEFAULT': {
         'BUNDLE_DIR_NAME': '',
-        'STATS_FILE': os.path.join(BASE_DIR, 'CodeType/dist/webpack-stats-prod.json'),
+        'STATS_FILE': os.path.join(BASE_DIR, 'frontend/dist/webpack-stats-prod.json'),
     }
 }
 
@@ -20,4 +20,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-VUE_ROOT = os.path.join(os.path.join(BASE_DIR, "CodeType"), "dist")
+VUE_ROOT = os.path.join(os.path.join(BASE_DIR, "frontend"), "dist")
